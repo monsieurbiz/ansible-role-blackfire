@@ -1,0 +1,22 @@
+---
+# tasks file for monsieurbiz.blackfire
+
+- name: Install packagecloud apt key
+  become: yes
+  become_user: root
+  apt_key: id={{ monsieurbiz_blackfire_gpg_key_id }} url={{ monsieurbiz_blackfire_gpg_key_url }} state=present
+  tags: [monsieurbiz, blackfire]
+
+- name: Add blackfire repository
+  become: yes
+  become_user: root
+  apt_repository: repo={{ monsieurbiz_blackfire_repository }}
+  tags: [monsieurbiz, blackfire]
+
+- name: Install blackfire
+  become: yes
+  become_user: root
+  apt: name={{ item }} state=latest
+  with_items: "{{ monsieurbiz_blackfire_packages }}"
+  notify: restart-webserver
+  tags: [monsieurbiz, blackfire]
