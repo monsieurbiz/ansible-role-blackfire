@@ -3,6 +3,7 @@
 
 monsieurbiz_blackfire_gpg_key_id: D59097AB
 monsieurbiz_blackfire_gpg_key_url: https://packagecloud.io/gpg.key
+monsieurbiz_blackfire_repository: "deb http://packages.blackfire.io/debian any main"
 monsieurbiz_blackfire_packages:
   - blackfire-agent
   - blackfire-php

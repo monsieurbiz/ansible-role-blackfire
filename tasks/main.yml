@@ -18,5 +18,5 @@
   become_user: root
   apt: name={{ item }} state=latest
   with_items: "{{ monsieurbiz_blackfire_packages }}"
-  notify: restart-webserver
+  notify: restart webserver
   tags: [monsieurbiz, blackfire]
